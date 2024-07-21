@@ -1,0 +1,17 @@
+{
+  "name": "nodemailer-base64-fix",
+  "version": "1.0.0",
+  "description": "A Nodemailer plugin to fix base64 image display issues by converting to CID attachments.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodemailer",
+    "base64",
+    "images",
+    "plugin"
+  ],
+  "author": "Mohamed Hedi Ayari",
+  "license": "MIT"
+}
