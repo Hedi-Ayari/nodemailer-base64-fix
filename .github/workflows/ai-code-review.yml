@@ -17,7 +17,7 @@ jobs:
           fi
           if [ -n "$DIFF" ]; then
             echo "Reviewing changes..."
-            curl -X POST "https://your-api-domain.com/pre-commit-review" \
+            curl -X POST "http://localhost:4000/pre-commit-review" \
               -H "Content-Type: application/json" \
               -d "{"diff": "$DIFF"}" \
               --fail
