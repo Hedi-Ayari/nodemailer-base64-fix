@@ -8,7 +8,11 @@ jobs:
       - uses: actions/checkout@v3
       - name: AI Code Review
         run: |
-          DIFF=$(git diff HEAD~1)
+          if [ "${{ github.event_name }}" = "push" ]; then
+            DIFF=$(git diff HEAD~1)
+          else
+            DIFF=$(git diff HEAD~1)
+          fi
           curl -X POST "https://your-api-domain.com/pre-commit-review" \
             -H "Content-Type: application/json" \
             -d '{"diff": "'$DIFF'"}' \
