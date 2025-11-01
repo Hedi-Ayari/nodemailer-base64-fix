@@ -16,9 +16,10 @@ jobs:
             DIFF=$(git diff HEAD~1 2>/dev/null || git show --format= --name-only)
           fi
           if [ -n "$DIFF" ]; then
-            curl -X POST "http://localhost:4000/pre-commit-review" \
+            echo "Reviewing changes..."
+            curl -X POST "https://your-api-domain.com/pre-commit-review" \
               -H "Content-Type: application/json" \
-              -d '{"diff": "'$DIFF'"}' \
+              -d "{"diff": "$DIFF"}" \
               --fail
           else
             echo "No changes to review"
