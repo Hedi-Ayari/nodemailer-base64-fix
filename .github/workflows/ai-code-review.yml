@@ -1,0 +1,17 @@
+name: AI Code Review
+on: [push, pull_request]
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: AI Code Review
+        run: |
+          DIFF=$(git diff HEAD~1)
+          curl -X POST "https://your-api-domain.com/pre-commit-review" \
+            -H "Content-Type: application/json" \
+            -d '{"diff": "'$DIFF'"}' \
+            --fail
+        env:
+          API_KEY: ${{ secrets.AI_REVIEW_API_KEY }}
